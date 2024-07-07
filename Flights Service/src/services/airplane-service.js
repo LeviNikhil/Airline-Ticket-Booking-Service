@@ -67,6 +67,7 @@ async function destroyAirplane(id)
 {
     try {
         const response = await airplaneRepository.destroy(id);
+        console.log(response);
         return response;
     } catch(error) {
         if(error.statusCode==StatusCodes.NOT_FOUND)
