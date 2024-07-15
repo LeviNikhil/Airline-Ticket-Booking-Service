@@ -6,7 +6,7 @@
 
 const { StatusCodes } = require("http-status-codes");
 const { Logger } = require("../config");
-const { Airplane, City } = require("../models");
+const { Airplane, City, Airport } = require("../models");
 const AppError = require("../utils/errors/app-error");
 
 class CrudRepository {
