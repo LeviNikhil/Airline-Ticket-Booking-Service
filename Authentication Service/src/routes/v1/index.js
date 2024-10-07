@@ -1,13 +1,10 @@
 const express = require("express");
 const router = express.Router();
 const { InfoController } = require("../../controllers");
-/*
-router.get("/info", (req, res) => {
-  // Link : http://localhost:3000/api/v1/info
-  return res.json({ ms: "OK" });
-});
-*/
-// Replace the above code using this current clean code
+const { AuthRequestMiddlewares } = require("../../middlewares");
+const userRouter = require("./user-routes");
 
-router.get("/info", InfoController.info);
+router.get("/info", AuthRequestMiddlewares.checkAuth, InfoController.info);
+router.use("/user", userRouter);
+
 module.exports = router;
